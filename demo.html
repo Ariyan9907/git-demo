@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Interactive Grid Map</title>
+    <style>
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-color: #f4f4f4;
+            margin: 0;
+        }
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(10, 50px);
+            grid-template-rows: repeat(10, 50px);
+            gap: 10px;
+            position: relative;
+        }
+        .node {
+            width: 10px;
+            height: 10px;
+            background-color: blue;
+            border-radius: 50%;
+            position: relative;
+            cursor: pointer;
+        }
+        .tooltip {
+            display: none;
+            position: absolute;
+            background-color: white;
+            padding: 5px;
+            border: 1px solid black;
+            font-size: 12px;
+            white-space: nowrap;
+            transform: translateX(10px) translateY(-30px);
+        }
+        .node:hover .tooltip {
+            display: block;
+        }
+    </style>
+</head>
+<body>
+    <div class="grid" id="grid"></div>
+    <script>
+        const grid = document.getElementById("grid");
+        const locations = [
+            { country: "USA", lat: "37.7749", lon: "-122.4194" },
+            { country: "India", lat: "28.6139", lon: "77.2090" },
+            { country: "Germany", lat: "52.5200", lon: "13.4050" },
+            { country: "Brazil", lat: "-15.8267", lon: "-47.9218" },
+            { country: "Australia", lat: "-33.8688", lon: "151.2093" }
+        ];
+        
+        for (let i = 0; i < 100; i++) {
+            const node = document.createElement("div");
+            node.classList.add("node");
+            
+            const tooltip = document.createElement("div");
+            tooltip.classList.add("tooltip");
+            let data = locations[Math.floor(Math.random() * locations.length)];
+            tooltip.innerHTML = `${data.country}<br>Lat: ${data.lat}<br>Lon: ${data.lon}`;
+            
+            node.appendChild(tooltip);
+            grid.appendChild(node);
+        }
+    </script>
+</body>
+</html>

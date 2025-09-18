@@ -1,0 +1,43 @@
+body{
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+.container{
+    color: white;
+    background-color: gray;
+    height: 400px;
+    width: 300px;
+    text-align: center;
+    border-radius: 5px;
+    border: 2px solid black;
+}
+
+input{
+    height: 1rem;
+    width: 200px;
+    padding: 10px;
+    border-radius: 5px;
+    font-weight: 600;
+}
+
+button{
+    background: none;
+    color: white;
+    border: none;
+    font-size: 20px;
+    margin-left:5px;
+}
+
+ul{
+    text-align: left;
+}
+
+h3{
+    text-align: center;
+    margin-right: 20%;
+}
+
